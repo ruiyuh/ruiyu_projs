@@ -1,7 +1,7 @@
 CSC575_PROJ
 ==============================
 
-IR 
+Section: Ruiyu
 
 Project Organization
 ------------
