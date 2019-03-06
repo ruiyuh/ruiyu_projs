@@ -2,6 +2,7 @@ CSC575_PROJ
 ==============================
 
 Section: Ruiyu
+
 Project Progress
 ------------
 ![proj_ray](proj_ray.png)
