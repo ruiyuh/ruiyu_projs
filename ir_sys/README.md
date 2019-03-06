@@ -2,6 +2,9 @@ CSC575_PROJ
 ==============================
 
 Section: Ruiyu
+Project Progress
+------------
+![proj_ray](C:\Users\RayHu\Documents\GitHub\ruiyu_projs\ir_sys\proj_ray.png)
 
 Project Organization
 ------------
