@@ -43,6 +43,6 @@ Finally, we calculate the sum each word scores, and get the score between the qu
 
 **Formula:**
 
-See BM25_fomula.pdf in the references folder
+See 'BM25_fomula.pdf' in the reference folder
 
 
