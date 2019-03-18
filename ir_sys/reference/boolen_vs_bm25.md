@@ -1,14 +1,3 @@
-# Model Selection
-
-## Boolean Retrieval
-**Advantages**
-* easy to implement
-* easy to interpret
-
-**Disadvantages**
-* Effectiveness depends entirely on entered query
-* create complex queries are difficult
-
 ## BM25- a variant of tf-idf
 
 >Bm25 is an algorithm used to evaluate the correlation between search terms and documents. It is an algorithm based on the probability retrieval model. 
@@ -27,25 +16,18 @@ Finally, we calculate the sum each word scores, and get the score between the qu
 For query Q and document d, we have BM25 d of Q:
 	$ BM25_{score}(Q,d)=\sum_{t\in Q}w(t,d) $
 
-$ w(t,d)=\frac{qtf}{k_3+qtf}\times \frac{k_1\times tf}{tf+k_1(1-b+b\times l_d/avg\_l)}\times log_2\frac{N-df+0.5}{df+0.5} ​$
+$ w(t,d)=\frac{(k_2+1)qf_i}{k_2+qf_i}\times \frac{(k_1+1)\times f_i}{f_i+k_1(1-b+b\times l_d/avg\_l)}\times log_2\frac{(r_i+0.5)/(R-r_i+0.5)}{(n_i-r_i+0.5)/(N-n_i-R+r_i+0.5)} ​$
 
-> qtf：term frequency of Q
-> tf：term frequency of d
-> ld：length of a document
-> avg_l：average length of documents
-> N：number of documents
-> df：frequency of document
-> b,k1,k3：adjustable parameter
->
-> * b: 0 $\leqslant$  b $\leqslant$  1; to avoid tiny documents get high weights
-> * k1: k1$\geqslant$0;  if k1 = 0, it means we dont consider the term freq; 
-> * k3: k3$\geqslant​$0; 
->
-> 
 
-Part I: $\frac{qtf}{k_3+qtf}\\$  Relevance between term and query
-
-Part II : $\frac{k_1\times tf}{tf+k_1(1-b+b\times l_d/avg\_l)}\\$ Relevance between term and document
-
-Part III: $log_2\frac{N-df+0.5}{df+0.5}$ term weight
+* $r_i$ is the # of relevant documents containing term i 
+* $n_i$  is the # of docs containing term i
+* N is the total # of docs in the collection
+* R is the number of relevant documents for this query  (set to 0 if no relevancy info is known)
+* $f_i$  is the frequency of term i in the doc under consideration
+* $qf_i$ is the frequency of term i in the query
+* $k_1$ determines how the tf component of the term weight changes as $f_i$
+  increases. (if 0, then tf component is ignored.) 
+* $k_2$ has a similar role for the query term weights. Typical values make the equation less sensitive to k2 than k1 because query term frequencies are much lower and less variable than doc term frequencies.
+* K ($k_1(1-b+b\times l_d/avg\_l)$) is more complicated. Its role is basically to normalize the tf component by document length.
+* b regulates the impact of length normalization. (0 means none; 1 is full normalization.) 
 
