@@ -1,7 +1,4 @@
-CSC575_PROJ
-==============================
-
-Section: Ruiyu
+Ruiyu
 
 
 
