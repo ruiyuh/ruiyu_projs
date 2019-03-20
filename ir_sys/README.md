@@ -1,11 +1,4 @@
-CSC575_PROJ
-==============================
-
-Section: Ruiyu
-
-
-
-Project Organization
+Organization
 ------------
 
     ├── LICENSE
