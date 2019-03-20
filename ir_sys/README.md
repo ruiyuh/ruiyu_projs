@@ -1,8 +1,4 @@
-Ruiyu
-
-
-
-Project Organization
+Organization
 ------------
 
     ├── LICENSE
